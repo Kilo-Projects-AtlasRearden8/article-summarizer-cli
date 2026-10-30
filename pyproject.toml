@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "article-summarizer"
+version = "0.1.0"
+description = "Local-first CLI that summarizes articles and text using a configurable OpenAI-compatible endpoint (default Ollama)."
+requires-python = ">=3.9"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [{name = "Asdale Dynamics, LLC"}]
+keywords = ["llm", "ollama", "summarization", "cli", "local-ai"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+]
+
+[project.scripts]
+article-summarizer = "article_summarizer_cli.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["article_summarizer_cli*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
